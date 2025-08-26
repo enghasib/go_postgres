@@ -93,3 +93,19 @@ SELECT COALESCE(blood_group, 'no group') as nullableField FROM students WHERE bl
 
 -- IN function
 SELECT * FROM students WHERE country IN('USA','UK','Australia');
+
+-- between operation 
+SELECT * FROM students WHERE dob BETWEEN '2001-01-01' AND '2002-12-31' ORDER BY dob ASC;
+
+-- like operator [search query] LIKE is a case sensitive operator ILIKE is insensitive;
+SELECT * FROM students WHERE first_name LIKE 'A%';
+
+-- pagination with limit and offset
+SELECT * from students LIMIT 5 OFFSET 5 * 2;
+
+-- delete command
+DELETE FROM students WHERE first_name = 'John';
+
+SELECT * FROM students;
+-- update table command
+UPDATE students SET blood_group = 'not-checked' WHERE blood_group is NULL;
